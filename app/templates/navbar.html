@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<div class="container-fluid" role="navigation" style="background-image: linear-gradient(to right,#6bf8f3,#3DCCC7, #C4FFF9, #C0F1F4,#68D8D6, #3DCCC7, #07BEB8);">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"><strong>PITCH ONE</strong></a>
+    </div>
+    <div class="navba" style="float:right;">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">General</a></li>
+            {% if current_user.is_authenticated %}
+            <li style="color:white;padding:15px;">{{current_user.username}}</li>
+            <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+            {% else %}
+            <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+            {%endif%}     
+        </ul>
+    </div>
+</div>
