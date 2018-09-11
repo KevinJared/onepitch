@@ -3,7 +3,7 @@ from . import main
 from .forms import ReviewForm, UpdateProfile
 from ..models import User
 from flask_login import login_required
-from .. import db
+from .. import db, photos
 from flask_login import login_required, current_user
 import markdown2  
 
@@ -17,7 +17,8 @@ def index():
         {
             'author': {'username': 'John'},
             'category':'Pickup line',
-            'pitch': 'Beautiful day in Portland!'
+            'pitch': 'Beautiful day in Portland!',
+            'profile':'{{url_for}}'
         },
         {
             'author': {'username': 'Susan'},
@@ -84,7 +85,7 @@ def update_profile(uname):
 
         return redirect(url_for('.profile',uname=user.username))
 
-    return render_template('profile/update.html',form =form)    
+    return render_template('profile/update.html',form =form)   
 
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required

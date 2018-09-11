@@ -24,11 +24,11 @@
     <div class="container-fluid">
         <div class="container" style="">
             {% for post in posts %}
-            <div class="well col-md-12">
+            <div class="">
                 <br>
-                <p><strong>CATEGORY:</strong>{{ post.category }}</p>
                 <p> <strong>PITCH:</strong>{{ post.pitch }}</p>
-                <p align='right'>{{ post.author.username }}</p>
+                <p><strong>CATEGORY:</strong>{{ post.category }}</p>
+                <p align='right'><strong>{{ post.author.username }}</strong> </p>
                 <button class="btn btn-info">upvote</button>
                 <button class="btn btn-info">downvote</button>
                 <br>
