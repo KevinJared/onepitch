@@ -11,8 +11,8 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kevone:12345@localhost/pitchgoal'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    UPLOADED_PHOTO_DEST ='app/static/photos'
-
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587

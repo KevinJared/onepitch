@@ -11,12 +11,12 @@ simple = SimpleMDE()
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 mail = Mail()
-photos = UploadSet('photos',IMAGES)
+
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
-
+photos = UploadSet('photos',IMAGES)
 
 def create_app(config_name):
 
@@ -26,7 +26,7 @@ def create_app(config_name):
     app.config.from_object(CONFIG_OPTIONS[config_name])
 
     # configure UploadSet
-    # configure_uploads(app,photos)
+    configure_uploads(app,photos)
 
     # Initializing flask extensions
     bootstrap.init_app(app)
