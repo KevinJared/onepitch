@@ -15,20 +15,9 @@ def index():
     '''
     posts = [
         {
-            'author': {'username': 'John'},
-            'category':'Pickup line',
-            'pitch': 'Beautiful day in Portland!',
-            'profile':'{{url_for}}'
-        },
-        {
-            'author': {'username': 'Susan'},
+            'author': {'username': 'Sniper'},
             'category':'promotion pitch',
-            'pitch': 'The Avengers movie was so cool!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'category':'promotion pitch',
-            'pitch': 'The Avengers movie was so cool!'
+            'pitch': 'it is nice to be able to ring a doorbell and there is someone to answer it and welcome you in!'
         },
         {
             'author': {'username': 'Susan'},
