@@ -35,16 +35,7 @@ class User(UserMixin, db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.password_hash,password)
-    @property
-    def password(self):
-        raise AttributeError('You cannot read the password attribute')
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
+   
     def __repr__(self):
         return '{}'.format(self.username)
     
