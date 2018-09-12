@@ -7,30 +7,29 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> Welcome to the pitch website </title>
+    <title> Welcome to ONE PITCH website </title>
     {% endif %}
 </head>
 
 <body>
     {% block content %}
     <!-- header -->
-    <div class="container-fluid" style="height:10vh;">
-        <p align='center'>{{ message}}</p>
-    </div>
+
     <!-- section -->
-    <div class="container-fluid">
-        <div class="container" style="">
+    <div class="container-fluid" style="background-color: cornsilk;">
+        <div class="container">
             {% for post in posts %}
             <div class="">
                 <br>
                 <p> <strong>PITCH:</strong>{{ post.pitch }}</p>
                 <p><strong>CATEGORY:</strong>{{ post.category }}</p>
                 <p align='right'><strong>{{ post.author.username }}</strong> </p>
-                <button class="btn btn-info">upvote</button>
-                <button class="btn btn-info">downvote</button>
+                <button class="btn btn-success">upvote</button>
+                <button class="btn btn-danger">downvote</button>
                 <br>
                 <br>
             </div>
@@ -40,7 +39,7 @@
 
     <!-- Footer -->
     <section id="footer">
-        <div class="container-fluid" style="background-color:aqua">
+        <div class="container-fluid"  style="background-image: linear-gradient(to right,#6bf8f3,#3DCCC7, #C4FFF9, #C0F1F4,#68D8D6, #3DCCC7, #07BEB8); font-family:'Gamja Flower', cursive; ">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>About</h5>
@@ -79,8 +78,7 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="#" target="_blank">Kevin
-                            Jared</a></p>
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="#" target="_blank">Kevin Jared</a></p>
                 </div>
                 </hr>
             </div>

@@ -27,7 +27,7 @@ def index():
         },
         {
             'author': {'username': 'Susan'},
-            'category':'Pickup line',
+            'category':'promotion pitch',
             'pitch': 'The Avengers movie was so cool!'
         },
         {
@@ -35,33 +35,14 @@ def index():
             'category':'Pickup line',
             'pitch': 'The Avengers movie was so cool!'
         },
-        {
-            'author': {'username': 'Susan'},
-            'category':'product pitch',
-            'pitch': 'The Avengers movie was so cool!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'category':'Pickup line',
-            'pitch': 'The Avengers movie was so cool!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'category':'interview pitch',
-            'pitch': 'The Avengers movie was so cool!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'category':'product pitch',
-            'pitch': 'The Avengers movie was so cool!'
-        }
     ]
 
     return render_template('index.html', posts=posts)
     
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
-    user = User.query.filter_by(username = uname).first()
+    user = User.query.filter_by(username=uname).first()
 
     if user is None:
         abort(404)
@@ -85,7 +66,7 @@ def update_profile(uname):
 
         return redirect(url_for('.profile',uname=user.username))
 
-    return render_template('profile/update.html',form =form)   
+    return render_template('profile/update.html',form =form)
 
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
 @login_required
