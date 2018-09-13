@@ -29,7 +29,9 @@
         <div class="col-md-3" style="height: 80vh;">
             <img src="{{ url_for('static', filename='photos/download.png') }}" alt="">
             <h4><strong>Create Pitch </strong> </h4>
-
+            <div class="well">
+                {{ wtf.quick_form(form)}}
+            </div>
         </div>
         <div class="container" class="col-md-9">
 

@@ -1,20 +1,34 @@
-from flask import render_template,request,redirect,url_for, abort
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from .forms import CommentForm, PostForm, UpdateProfile
 from ..models import User,  Pitch
 from flask_login import login_required
 from .. import db, photos
 from flask_login import login_required, current_user
-import markdown2  
+import markdown2
 
-@main.route('/') 
+
+@main.route('/')
 def index():
-
     '''
     View root function that returns the index page
     '''
-    
-    return render_template('index.html')
+    form = PostForm()
+    if form.validate_on_submit():
+       post = form.post.data
+       category = form.category.data
+       user = current_user
+
+
+       new_pitch = Pitch(body = post,category = category,user = user,form=form)
+
+       # save pitch
+       db.session.add(new_pitch)
+       db.session.commit()
+       
+       new_pitch.save_pitch()
+       return redirect(url_for('main.explore',uname = user.username))
+    return render_template('index.html',form=form)
     
 @main.route('/user/<uname>')
 @login_required
