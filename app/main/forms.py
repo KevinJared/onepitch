@@ -1,14 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,ValidationError
+from wtforms import StringField,TextAreaField,SubmitField,ValidationError,SelectField 
 from wtforms.validators import Required,Email
-# from .models import User
-
-class ReviewForm(FlaskForm):
-
-    title = StringField('comment title',validators=[Required()])
-    review = TextAreaField('comment review')
-    submit = SubmitField('Submit')
     
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
+
+class PostForm(FlaskForm):
+    category = SelectField('Category', choices=[('Pickuplines','Pickuplines'),('Technology','Technology'),('BusinessPitch','Business Pitch'),('Sales','Sales'),('Interview','Interview')])
+    post = TextAreaField(('Say something'), validators=[Required()])
+    
+
+    submit = SubmitField(('Submit'))
+
+class CommentForm(FlaskForm):
+    details = StringField('Write a comment',validators=[Required()])
+    submit = SubmitField('Comment')

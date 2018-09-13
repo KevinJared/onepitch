@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
 <!DOCTYPE html>
 <html>
 
@@ -16,29 +19,20 @@
 </head>
 
 <body>
+
+
     {% block content %}
     <!-- header -->
 
     <!-- section -->
     <div class="container-fluid" style="background-color: cornsilk; height: 530px;">
-        <div class="col-md-3" style="height: 100vh;">
+        <div class="col-md-3" style="height: 80vh;">
             <img src="{{ url_for('static', filename='photos/download.png') }}" alt="">
+            <h2><strong>Create Pitch </strong> </h2>
+
         </div>
-        <div class="container">
-            {% for post in posts %}
+        <div class="container" class="col-md-9">
 
-            <div class="col-md-9">
-
-                <br>
-                <p> <strong>PITCH:</strong>{{ post.pitch }}</p>
-                <p><strong>CATEGORY:</strong>{{ post.category }}</p>
-                <p align='right'><strong>{{ post.author.username }}</strong> </p>
-                <button class="btn btn-success">upvote</button>
-                <button class="btn btn-danger">downvote</button>
-                <br>
-                <br>
-            </div>
-            {% endfor %}
         </div>
     </div>
 
