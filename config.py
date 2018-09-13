@@ -8,7 +8,7 @@ class Config:
     '''
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kevone:12345@localhost/pitchgoal'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kevone:12345@localhost/pitchgoal'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -28,7 +28,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI =os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI =os.environ.get("HEROKU_POSTGRESQL_NAVY_URL")
     pass
 
 

@@ -18,14 +18,12 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
+
+        mail_message("Welcome to One Pitch","email/welcome_user",user.email,user=user)
+        flash('Successfully registered')
         return redirect(url_for('auth.login'))
 
-        flash('Successfully signed up! Please sign in to continue')
-       
-        title = "New Account"
     return render_template('auth/register.html', registration_form=form)
-
-    
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():

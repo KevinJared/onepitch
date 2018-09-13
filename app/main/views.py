@@ -74,7 +74,7 @@ def post():
 
        return redirect(url_for('main.explore',uname = user.username))
 
-   return render_template('index.html',post=post,category=category, form = form)
+   return render_template('index.html',post=post,form = form)
 
 
 @main.route('/post/<int:id>', methods = ['GET','POST'])
