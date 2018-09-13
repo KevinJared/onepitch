@@ -8,7 +8,8 @@ from flask_login import login_required, current_user
 import markdown2
 
 
-@main.route('/')
+@main.route('/', methods = ['GET','POST'])
+@login_required
 def index():
     '''
     View root function that returns the index page
@@ -17,17 +18,16 @@ def index():
     if form.validate_on_submit():
        post = form.post.data
        category = form.category.data
-       user = current_user
+    
 
 
-       new_pitch = Pitch(body = post,category = category,user = user,form=form)
+       new_pitch = Pitch(body = post,category = category,user = current_user)
 
        # save pitch
        db.session.add(new_pitch)
        db.session.commit()
-       
-       new_pitch.save_pitch()
-       return redirect(url_for('main.explore',uname = user.username))
+
+       return redirect(url_for('.index'))
     return render_template('index.html',form=form)
     
 @main.route('/user/<uname>')
@@ -70,25 +70,25 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-@main.route('/post', methods = ['GET','POST'])
-@login_required
-def post():
-   form = PostForm()
-   if form.validate_on_submit():
-       post = form.post.data
-       category = form.category.data
-       user = current_user
+# @main.route('/post', methods = ['GET','POST'])
+# @login_required
+# def post():
+#    form = PostForm()
+#    if form.validate_on_submit():
+#        post = form.post.data
+#        category = form.category.data
+#        user = current_user
 
 
-       new_pitch = Pitch(body = post,category = category,user = user)
+#        new_pitch = Pitch(body = post,category = category,user = user)
 
-       # save pitch
-       db.session.add(new_pitch)
-       db.session.commit()
+#        # save pitch
+#        db.session.add(new_pitch)
+#        db.session.commit()
 
-       return redirect(url_for('main.explore',uname = user.username))
+#        return redirect(url_for('main.explore',uname = user.username))
 
-   return render_template('index.html',post=post,form = form)
+#    return render_template('index.html',post=post,form = form)
 
 
 @main.route('/post/<int:id>', methods = ['GET','POST'])
