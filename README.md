@@ -1,5 +1,5 @@
 # ONE MINUTE PITCH
-#### This is an application that lets a user post pitches of different categories 
+#### This is an application that lets a user post pitches of different categories
 #### By **Kevin Jared**
 # Description
 One pitch is an application where a user can
@@ -15,7 +15,7 @@ One pitch is an application where a user can
 Note: This is an academic project.
 # Setup
 ## View on Heroku
-https://git.heroku.com/pitchgoal.git
+https://onepitchgoall.herokuapp.com/
 ## First clone this repo:
 
 * git clone https://github.com/KevinJared/onepitch.git
