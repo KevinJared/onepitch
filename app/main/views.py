@@ -18,8 +18,6 @@ def index():
     if form.validate_on_submit():
        post = form.post.data
        category = form.category.data
-    
-
 
        new_pitch = Pitch(body = post,category = category,user = current_user)
 
