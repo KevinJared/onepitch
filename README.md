@@ -14,21 +14,54 @@ One pitch is an application where a user can
 
 Note: This is an academic project.
 # Setup
-## View on Heroku
-https://onepitchgoall.herokuapp.com/
-## First clone this repo:
+
+## clone this repo:
 
 * git clone https://github.com/KevinJared/onepitch.git
-## Navigate to the repo on your terminal
-cd News-Highlight
-## install the requirements.txt
-* pip install -r requirements.txt
 
-* activate the virtual environment
-* ./start.sh
+You need to have Python 3.6 installed to run this program.
+
+`$ git clone <this-repository>`<br />
+
+Create a virtual enironment and activate it.
+
+`$ virtualenv -p python`<br>
+`$ source virtual/bin/acivate` and `(virtual)$ deactivate` is to deactivate the environment.
+
+In the virtual environment:
+
+`(virtual)$ pip install -r requirements.txt`<br />
+
+Running the app.
+
+    Prepare the environment variables.
+    
+        (virtual)$exportDATABASE_URL='postgresqlpsycopg2://username:password@localhost/pitch'`<br/>
+        `(virtual)$ export SECRET_KEY='Your secret key'
+
+    Run Database Migrations.
+
+        (virtual)$ python manage.py db init
+        (virtual)$ python manage.py db migrate -m "Initial migration"
+        (virtual)$ python manage.py db upgrade
+
+    Run the app.
+
+        (virtual)$ touch start.sh
+
+        Put #!/usr/bin/env bash as the first line in start.sh
+        Put python3.6 manage.py server as the second line in start.sh
+
+        (virtual)$ chmod a+x start.sh
+        (virtual)$ ./start.sh
+
+## View on Heroku
+https://onepitchgoall.herokuapp.com/
 
 ## Technologies Used
 Python
+HTML
+CSS
 ## Support and contact details
 For any questions please feel free to reach out to me through
 * kevinjaredkip@gmail.com
