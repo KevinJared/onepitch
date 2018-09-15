@@ -7,7 +7,7 @@ class UpdateProfile(FlaskForm):
     submit = SubmitField('Submit')
 
 class PostForm(FlaskForm):
-    category = SelectField('Category', choices=[('Pickuplines','Pickuplines'),('Technology','Technology'),('BusinessPitch','Business Pitch'),('Sales','Sales'),('Interview','Interview')])
+    category = SelectField('Category', choices=[('Technology','Technology'),('Pickuplines','Pickuplines'),('BusinessPitch','Business Pitch'),('Sales','Sales'),('Interview','Interview')])
     post = TextAreaField(('Say something'), validators=[Required()])
     submit = SubmitField(('Submit'))
 

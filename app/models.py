@@ -44,6 +44,11 @@ class User(UserMixin, db.Model):
         return User.query.get(int(id))
 
 class Pitch(db.Model):
+    '''
+    Pitch class represent the pitches Pitched by 
+    users.
+    ''' 
+
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
@@ -55,10 +60,7 @@ class Pitch(db.Model):
     def retrieve_posts(cls, id):
         pitches = Pitch.filter_by(id=id).all()
         return pitches
-    '''
-    Pitch class represent the pitches Pitched by 
-    users.
-    '''
+
 
     def __repr__(self):
         return '{}'.format(self.body)

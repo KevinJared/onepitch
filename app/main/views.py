@@ -68,30 +68,9 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-# @main.route('/post', methods = ['GET','POST'])
-# @login_required
-# def post():
-#    form = PostForm()
-#    if form.validate_on_submit():
-#        post = form.post.data
-#        category = form.category.data
-#        user = current_user
-
-
-#        new_pitch = Pitch(body = post,category = category,user = user)
-
-#        # save pitch
-#        db.session.add(new_pitch)
-#        db.session.commit()
-
-#        return redirect(url_for('main.explore',uname = user.username))
-
-#    return render_template('index.html',post=post,form = form)
-
-
 @main.route('/post/<int:id>', methods = ['GET','POST'])
 @login_required
-def user_post(id):
+def new_pitch(id):
 
     users_post = User.query.filter_by(user_id=id).all()
     return render_template('index.html',users_post = users_post)
