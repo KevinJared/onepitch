@@ -1,20 +1,21 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <div class="container-fluid" role="navigation" style="background-image: linear-gradient(to right,#6bf8f3,#3DCCC7, #C4FFF9, #C0F1F4,#68D8D6, #3DCCC7, #07BEB8);">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/"><strong>PITCH ONE</strong></a>
-    </div>
-    <div class="navba" style="float:right;">
-        <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <ul class="nav navbar-nav navbar-right">
-                {% if current_user.is_authenticated %}
-                <li><a href="/user/{{current_user.username}}">Profile</a></li>
-                <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-                {% else %}
-                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
-                {%endif%}
-            </ul>
-
-        </ul>
+    <p align="left"><a class="navbar-brand" href="/">PITCH ONE</a></p>
+    <div class="navba" style="float:right; margin-top:5px;">
+        <a href="/">Home</a> &nbsp; &nbsp;
+        {% if current_user.is_authenticated %}
+        <a href="/user/{{current_user.username}}">Profile</a> &nbsp; &nbsp;
+        <a href="{{url_for('auth.logout')}}">Sign out</a> <a href="{{url_for('auth.logout')}}"><span class="glyphicon glyphicon-off"></span></a>&nbsp; &nbsp;
+        {% else %}
+        <a href="{{url_for('auth.login')}}">Sign in</a> <a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-off"></span></a>&nbsp; &nbsp;
+        {%endif%}
     </div>
 </div>
+<style>
+    .navba a {
+        font-family: 'Muli', sans-serif;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+    }
+</style>

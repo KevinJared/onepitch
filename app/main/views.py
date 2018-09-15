@@ -14,20 +14,69 @@ def index():
     '''
     View root function that returns the index page
     '''
+    posts = [{
+    'author' : 'Edgar kibet',
+    'postedOn' : 'Jan 2, 2018 15:46h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Technology'
+    },
+    {
+    'author' : 'Mercy  Cathre',
+    'postedOn' : 'Sep 6, 2018 21:03h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Interview'
+    },
+    {
+    'author' : 'Sniper Boy',
+    'postedOn' : 'Sep 6, 2018 00:15h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Sales'
+    },
+    {
+    'author' : 'Kevin Jared',
+    'postedOn' : 'Sep 6, 2018 00:15h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Pickuplines'
+    },
+    {
+    'author' : 'Sparta',
+    'postedOn' : 'Sep 6, 2018 21:03h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Interview '
+    },
+        {
+    'author' : 'brian langat',
+    'postedOn' : 'Sep 6, 2018 21:03h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Interview '
+    },
+        {
+    'author' : 'collins',
+    'postedOn' : 'Sep 6, 2018 21:03h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Interview '
+    },
+        {
+    'author' : 'Sparta',
+    'postedOn' : 'Sep 6, 2018 21:03h',
+    'content' : 'I want to launch a Rocket',
+    'category' : 'Interview'
+    },
+    ]
 
     form = PostForm()
     if form.validate_on_submit():
        post = form.post.data
        category = form.category.data
 
-       new_pitch = Pitch(body = post,category = category,user = current_user, posts=posts)
+       new_pitch = Pitch(body = post,category = category,user = current_user)
 
        # save pitch
        db.session.add(new_pitch)
        db.session.commit()
 
        return redirect(url_for('.index'))
-    return render_template('index.html',form=form)
+    return render_template('index.html',form=form , posts=posts)
     
 @main.route('/user/<uname>')
 @login_required
