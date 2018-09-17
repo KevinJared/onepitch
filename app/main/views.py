@@ -9,7 +9,6 @@ import markdown2
 
 
 @main.route('/', methods = ['GET','POST'])
-@login_required
 def index():
     '''
     View root function that returns the index page
@@ -17,49 +16,49 @@ def index():
     posts = [{
     'author' : 'Edgar kibet',
     'postedOn' : 'Jan 2, 2018 15:46h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'Am selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can not handle me at my worst, then you sure as hell do not deserve me at my best.',
     'category' : 'Technology'
     },
     {
     'author' : 'Mercy  Cathre',
     'postedOn' : 'Sep 6, 2018 21:03h',
-    'content' : 'I want to launch a Rocket',
-    'category' : 'Interview'
+    'content' : 'Two things are infinite: the universe and human stupidity; and am not sure about the universe.',
+    'category': 'Interview'
     },
     {
     'author' : 'Sniper Boy',
     'postedOn' : 'Sep 6, 2018 00:15h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'A room without books is like a body without a soul.',
     'category' : 'Sales'
     },
     {
     'author' : 'Kevin Jared',
     'postedOn' : 'Sep 6, 2018 00:15h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'You only live once, but if you do it right, once is enough.',
     'category' : 'Pickuplines'
     },
     {
     'author' : 'Sparta',
     'postedOn' : 'Sep 6, 2018 21:03h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'If you tell the truth, you do not have to remember anything.',
     'category' : 'Interview '
     },
         {
     'author' : 'brian langat',
     'postedOn' : 'Sep 6, 2018 21:03h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'A friend is someone who knows all about you and still loves you.',
     'category' : 'Interview '
     },
         {
     'author' : 'collins',
     'postedOn' : 'Sep 6, 2018 21:03h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'Always forgive your enemies; nothing annoys them so much.',
     'category' : 'Interview '
     },
         {
     'author' : 'Sparta',
     'postedOn' : 'Sep 6, 2018 21:03h',
-    'content' : 'I want to launch a Rocket',
+    'content' : 'a measure of the angle of the blades of a screw propeller, equal to the distance forward a blade would move in one revolution if it exerted no thrust on the medium.',
     'category' : 'Interview'
     },
     ]
